@@ -1,0 +1,273 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "addtokens",
+            "base": "",
+            "fields": [
+                {
+                    "name": "tokens_v",
+                    "type": "token[]"
+                }
+            ]
+        },
+        {
+            "name": "clearconfig",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "clearcontrib",
+            "base": "",
+            "fields": [
+                {
+                    "name": "rows",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "cleartokens",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "config",
+            "base": "",
+            "fields": [
+                {
+                    "name": "admin_pause",
+                    "type": "bool"
+                },
+                {
+                    "name": "user_power_reward_cap",
+                    "type": "uint32"
+                },
+                {
+                    "name": "user_power_reward_multiplier_max",
+                    "type": "uint8"
+                },
+                {
+                    "name": "user_power_reward_increment",
+                    "type": "uint8"
+                },
+                {
+                    "name": "user_donations_per_level",
+                    "type": "uint8"
+                },
+                {
+                    "name": "user_level_cap",
+                    "type": "uint8"
+                },
+                {
+                    "name": "promotion_start_utc_ms",
+                    "type": "uint64"
+                },
+                {
+                    "name": "promotion_end_utc_ms",
+                    "type": "uint64"
+                },
+                {
+                    "name": "min_contribution_percent_increase",
+                    "type": "uint8"
+                }
+            ]
+        },
+        {
+            "name": "contributors",
+            "base": "",
+            "fields": [
+                {
+                    "name": "account",
+                    "type": "name"
+                },
+                {
+                    "name": "coins",
+                    "type": "asset[]"
+                },
+                {
+                    "name": "donations",
+                    "type": "uint32"
+                },
+                {
+                    "name": "level",
+                    "type": "uint32"
+                },
+                {
+                    "name": "total_power_granted",
+                    "type": "uint32"
+                }
+            ]
+        },
+        {
+            "name": "extended_symbol",
+            "base": "",
+            "fields": [
+                {
+                    "name": "sym",
+                    "type": "symbol"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "gentknpwr",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "initconfig",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "setconfig",
+            "base": "",
+            "fields": [
+                {
+                    "name": "conf",
+                    "type": "config"
+                }
+            ]
+        },
+        {
+            "name": "token",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token",
+                    "type": "extended_symbol"
+                },
+                {
+                    "name": "quantity",
+                    "type": "uint32"
+                },
+                {
+                    "name": "daily_power_regen",
+                    "type": "uint32"
+                },
+                {
+                    "name": "power_available_cap",
+                    "type": "uint32"
+                },
+                {
+                    "name": "current_power_available",
+                    "type": "float32"
+                }
+            ]
+        },
+        {
+            "name": "tokens",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token",
+                    "type": "extended_symbol"
+                },
+                {
+                    "name": "min_contribution",
+                    "type": "float32"
+                },
+                {
+                    "name": "total_contributed",
+                    "type": "float32"
+                },
+                {
+                    "name": "unique_contributors",
+                    "type": "uint32"
+                },
+                {
+                    "name": "daily_power_regen",
+                    "type": "uint32"
+                },
+                {
+                    "name": "current_power_available",
+                    "type": "float32"
+                },
+                {
+                    "name": "power_available_cap",
+                    "type": "uint32"
+                },
+                {
+                    "name": "power_last_updated_utc_ms",
+                    "type": "uint64"
+                },
+                {
+                    "name": "power_reward_multiplier",
+                    "type": "uint8"
+                },
+                {
+                    "name": "total_power_granted",
+                    "type": "uint32"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "addtokens",
+            "type": "addtokens",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "clearconfig",
+            "type": "clearconfig",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "clearcontrib",
+            "type": "clearcontrib",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "cleartokens",
+            "type": "cleartokens",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "gentknpwr",
+            "type": "gentknpwr",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "initconfig",
+            "type": "initconfig",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setconfig",
+            "type": "setconfig",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "config",
+            "type": "config",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "contributors",
+            "type": "contributors",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "tokens",
+            "type": "tokens",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
