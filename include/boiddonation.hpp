@@ -6,7 +6,8 @@
 #include <cmath>
 #define DAY_MS 8.64e7
 // #define DAY_MS 3.6e6
-#define TOKEN_CONTRACT "token.boid"
+// #define TOKEN_CONTRACT "token.boid"
+#define TOKEN_CONTRACT "boidcomtoken"
 using namespace eosio;
 using eosio::microseconds;
 

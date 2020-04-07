@@ -102,7 +102,7 @@ void boiddonation::deposit(name from, name to, eosio::asset quantity, std::strin
   });
 
    if (boidpower > 0) {
-     eosio::action(permission_level{name(TOKEN_CONTRACT), "active"_n}, name(TOKEN_CONTRACT), "updatepower"_n, std::make_tuple(from,boidpower)).send();
+     eosio::action(permission_level{name(TOKEN_CONTRACT), "poweroracle"_n}, name(TOKEN_CONTRACT), "updatepower"_n, std::make_tuple(from,boidpower)).send();
    }
 }
 
