@@ -20,20 +20,9 @@ async function doAction(name,data){
 }
 
 async function init(){
-  console.log('Starting reset...')
-  // await doAction('clearconfig')
-  // await doAction('cleartokens')
-  // await doAction('clearcontrib',{rows:10000})
-  // await doAction('initconfig')
-  await doAction('addtokens',{tokens_v:tokens_v.map(el =>{
-    if (env.network === 'kylin') {
-      el.token.contract = 'boiddummytkn'
-      if (el.token.sym.split(',')[1] == "BOID") el.token.contract = 'token.boid'
-    }
-    return el
-  })})
-  // await doAction('setconfig',{conf:config})
-  console.log('Reset finished')
+  await doAction('erasetoken',{token_symbol:"4,ATMOS",token:{token:{contract:"novusphereio",sym:"3,ATMOS"},quantity:900,daily_power_regen:200,power_available_cap:6000,current_power_available:500}})
+  // await doAction('erasetoken',{token_symbol:"4,ATMOS",token:{token:{contract:"novusphereio",sym:"3,ATMOS"},quantity:900,daily_power_regen:200,power_available_cap:6000,current_power_available:500}})
+
 }
 
 init().catch(console.log)

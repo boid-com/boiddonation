@@ -1,5 +1,5 @@
 module.exports = {
-  admin_pause: true,
+  admin_pause: false,
   user_power_reward_cap: 100,
   user_power_reward_multiplier_max:5,
   user_power_reward_increment:10,

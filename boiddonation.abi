@@ -102,6 +102,16 @@
             ]
         },
         {
+            "name": "erasetoken",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_symbol",
+                    "type": "symbol"
+                }
+            ]
+        },
+        {
             "name": "extended_symbol",
             "base": "",
             "fields": [
@@ -227,6 +237,11 @@
         {
             "name": "cleartokens",
             "type": "cleartokens",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "erasetoken",
+            "type": "erasetoken",
             "ricardian_contract": ""
         },
         {

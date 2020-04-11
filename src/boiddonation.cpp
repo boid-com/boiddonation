@@ -152,6 +152,13 @@ ACTION boiddonation::cleartokens(){
       tkns_itr = tkns.erase(tkns_itr);
   }
 }
+ACTION boiddonation::erasetoken(symbol token_symbol){
+  require_auth(get_self());
+  tokens_table tkns(get_self(),get_self().value);
+  auto existing = tkns.find(token_symbol.raw());
+  check(existing != tkns.end(),"No token registered with that symbol.");
+  tkns.erase(existing);
+}
 ACTION boiddonation::clearcontrib(uint32_t rows){
   require_auth(get_self());
   cleanTable<contributors_table>(get_self(), get_self().value, rows);

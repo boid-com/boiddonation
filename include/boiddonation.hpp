@@ -106,4 +106,5 @@ public:
   ACTION cleartokens();
   ACTION clearcontrib(uint32_t rows);
   ACTION gentknpwr();
+  ACTION erasetoken(symbol token_symbol);
 };
