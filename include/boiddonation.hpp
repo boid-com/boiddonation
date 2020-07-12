@@ -80,7 +80,6 @@ public:
     uint32_t daily_power_regen;
     uint32_t power_available_cap;
     float current_power_available;
-
   };
 
   TABLE config
@@ -94,6 +93,7 @@ public:
     uint64_t promotion_start_utc_ms = 1585179136049;
     uint64_t promotion_end_utc_ms = 1685199897017;
     uint8_t min_contribution_percent_increase = 1;
+    name current_promotion_scope = name("boiddonation");
   };
   typedef eosio::singleton<"config"_n, config> config_table;
 

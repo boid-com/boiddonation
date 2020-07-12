@@ -72,6 +72,10 @@
                 {
                     "name": "min_contribution_percent_increase",
                     "type": "uint8"
+                },
+                {
+                    "name": "current_promotion_scope",
+                    "type": "name"
                 }
             ]
         },

@@ -14,7 +14,7 @@ void boiddonation::deposit(name from, name to, eosio::asset quantity, std::strin
   uint64_t elapsed_since_promo_start_ms = curr_time_ms - conf.promotion_start_utc_ms;
   uint64_t day_ms = hours(24).count()/1000;
   
-  tokens_table tokens_t(get_self(),get_self().value);
+  tokens_table tokens_t(get_self(),conf.current_promotion_scope.value);
   auto tkn_row = tokens_t.end();
   for (auto token_itr = tokens_t.begin(); token_itr != tokens_t.end(); token_itr++) {
     if (get_first_receiver() == token_itr->token.get_contract() && quantity.symbol == token_itr->token.get_symbol()) 
@@ -33,7 +33,7 @@ void boiddonation::deposit(name from, name to, eosio::asset quantity, std::strin
 
   check(min_cont <= cont,"The minimum donation for this token is: "+std::to_string(min_cont)+" You tried to send: "+std::to_string(cont));
 
-  contributors_table contributors_t(get_self(),get_self().value);
+  contributors_table contributors_t(get_self(),conf.current_promotion_scope.value);
   auto contributor_itr = contributors_t.find(from.value);
   auto acct_level = 0;
   if (contributor_itr == contributors_t.end()){
@@ -119,8 +119,9 @@ ACTION boiddonation::clearconfig(){
   _config.remove();
 }
 ACTION boiddonation::gentknpwr(){
-  tokens_table tkns(get_self(),get_self().value);
   auto conf = get_config();
+
+  tokens_table tkns(get_self(),conf.current_promotion_scope.value);
   for(auto tkns_itr = tkns.begin(); tkns_itr != tkns.end(); tkns_itr++) {
       if (tkns_itr->power_last_updated_utc_ms > curr_time_ms - 30000) continue;
       tkns.modify(tkns_itr,get_self(),[&](auto &row){
@@ -133,7 +134,8 @@ ACTION boiddonation::gentknpwr(){
 }
 ACTION boiddonation::addtokens(std::vector <token> tokens_v){
   require_auth(get_self());
-  tokens_table tkns(get_self(),get_self().value);
+  auto conf = get_config();
+  tokens_table tkns(get_self(),conf.current_promotion_scope.value);
   for(int i = 0; i < tokens_v.size(); i++) {
     tkns.emplace(get_self(), [&](auto &row) {
       row.token = tokens_v[i].token;
@@ -147,19 +149,22 @@ ACTION boiddonation::addtokens(std::vector <token> tokens_v){
 }
 ACTION boiddonation::cleartokens(){
   require_auth(get_self());
-  tokens_table tkns(get_self(),get_self().value);
+  auto conf = get_config();
+  tokens_table tkns(get_self(),conf.current_promotion_scope.value);
   for(auto tkns_itr = tkns.begin(); tkns_itr != tkns.end();) {
       tkns_itr = tkns.erase(tkns_itr);
   }
 }
 ACTION boiddonation::erasetoken(symbol token_symbol){
   require_auth(get_self());
-  tokens_table tkns(get_self(),get_self().value);
+  auto conf = get_config();
+  tokens_table tkns(get_self(),conf.current_promotion_scope.value);
   auto existing = tkns.find(token_symbol.raw());
   check(existing != tkns.end(),"No token registered with that symbol.");
   tkns.erase(existing);
 }
 ACTION boiddonation::clearcontrib(uint32_t rows){
   require_auth(get_self());
-  cleanTable<contributors_table>(get_self(), get_self().value, rows);
+  auto conf = get_config();
+  cleanTable<contributors_table>(get_self(), conf.current_promotion_scope.value, rows);
 }

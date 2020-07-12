@@ -25,14 +25,14 @@ async function init(){
   // await doAction('cleartokens')
   // await doAction('clearcontrib',{rows:10000})
   // await doAction('initconfig')
-  await doAction('addtokens',{tokens_v:tokens_v.map(el =>{
-    if (env.network === 'kylin') {
-      el.token.contract = 'boiddummytkn'
-      if (el.token.sym.split(',')[1] == "BOID") el.token.contract = 'token.boid'
-    }
-    return el
-  })})
-  // await doAction('setconfig',{conf:config})
+  // await doAction('addtokens',{tokens_v:tokens_v.map(el =>{
+  //   if (env.network === 'kylin') {
+  //     el.token.contract = 'boiddummytkn'
+  //     if (el.token.sym.split(',')[1] == "BOID") el.token.contract = 'token.boid'
+  //   }
+  //   return el
+  // })})
+  await doAction('setconfig',{conf:config})
   console.log('Reset finished')
 }
 

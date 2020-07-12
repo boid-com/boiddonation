@@ -20,7 +20,8 @@ async function doAction(name,data){
 }
 
 async function init(){
-  await doAction('erasetoken',{token_symbol:"4,ATMOS",token:{token:{contract:"novusphereio",sym:"3,ATMOS"},quantity:900,daily_power_regen:200,power_available_cap:6000,current_power_available:500}})
+  await doAction('setconfig',{conf:config})
+  // await doAction('erasetoken',{token_symbol:"8,WAX"})
   // await doAction('erasetoken',{token_symbol:"4,ATMOS",token:{token:{contract:"novusphereio",sym:"3,ATMOS"},quantity:900,daily_power_regen:200,power_available_cap:6000,current_power_available:500}})
 
 }
