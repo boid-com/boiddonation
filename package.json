@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "boidjs": "^1.1.71",
-    "eosjs": "^20.0.3",
+    "eosjs": "^22.1.0",
     "node-fetch": "^2.6.7",
     "randomstring": "^1.1.5"
   }
